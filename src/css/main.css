@@ -32,11 +32,23 @@
 }
 
 @keyframes type {
-    from {
-        width: 0ch;
-    }
-    to {
+    0% {
         width: 11ch;
+        border-right: 1px solid #ffdd57;
+    }
+    25% {
+        width: 11ch;
+        border-right: 3px solid #461818;
+    }
+    50% {
+        border-right: 1px solid #ffdd57;
+    }
+    75% {
+        border-right: 3px solid #461818;
+    }
+    100% {
+        width: 0ch;
+        border-right: 1px solid #ffdd57;
     }
 }
 
