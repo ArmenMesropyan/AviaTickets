@@ -9,7 +9,7 @@
 
 <body>
     <header class="main-nav">
-        <nav class="main-header__nav main-nav navbar is-fixed-top is-warning" role="navigation" aria-label="main navigation">
+        <nav class="main-header__nav main-nav navbar is-warning" role="navigation" aria-label="main navigation">
             <ul class="main-nav__list container">
                 <li class="main-nav__item logo navbar-brand">
                     <object data="img/logo.svg" type="image/svg+xml" class="logo__img pulse">Avia Tickets</object>
@@ -26,6 +26,33 @@
             </ul>
         </nav>
     </header>
+    <main class="tickets">
+        <section class="tickets__form tickets-form section panel zoomIn">
+            <h2 class="tickets-form__title panel-heading">Search tickets!</h2>
+            <form class="tickets-form__form panel-block">
+                <div class="tickets-form__route">
+                    <fieldset class="tickets-form__origin field">
+                        <label class="label" for="origin">Origin</label>
+                        <input class="input" type="text" placeholder="Choose origin" name="origin" id="origin">
+                    </fieldset>
+                    <fieldset class="tickets-form__destination field">
+                        <label class="label" for="destination">Destination</label>
+                        <input class="input" type="text" placeholder="Choose destination" name="destination" id="destination">
+                    </fieldset>
+                </div>
+                <div class="tickets-form__date">
+                    <fieldset class="tickets-form__depart field">
+                        <label class="label" for="depart">Depart</label>
+                        <input class="input" type="text" placeholder="Choose depart" name="depart" id="depart">
+                    </fieldset>
+                    <fieldset class="tickets-form__return field">
+                        <label class="label" for="return">Return</label>
+                        <input class="input" type="text" placeholder="Choose return" name="return" id="return">
+                    </fieldset>
+                </div>
+            </form>
+        </section>
+    </main>
 </body>
 
 </html>
