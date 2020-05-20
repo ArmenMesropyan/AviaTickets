@@ -13,6 +13,11 @@ body {
 
 /* Navigation */
 
+.main-nav {
+    position: relative;
+    z-index: 0;
+}
+
 .main-nav__item {
     align-items: center;
 }
@@ -132,59 +137,6 @@ body {
 
 .tickets-form__button {
     margin-top: 20px;
-}
-
-
-/* Autocomplete */
-
-.input-field {
-    position: relative;
-}
-
-.dropdown-content {
-    background-color: #fff;
-    margin: 0;
-    padding: 0;
-    display: none;
-    min-width: 100px;
-    overflow-y: auto;
-    opacity: 0;
-    position: absolute;
-    left: 0;
-    top: 0;
-    z-index: 9999;
-    transform-origin: 0 0;
-}
-
-.dropdown-content li {
-    color: rgba(0, 0, 0, 0.87);
-    cursor: pointer;
-    min-height: 50px;
-    line-height: 1.5rem;
-    width: 100%;
-    text-align: left;
-}
-
-.dropdown-content li:hover,
-.dropdown-content li.active {
-    background-color: #eee;
-}
-
-.dropdown-content li>a,
-.dropdown-content li>span {
-    font-size: 16px;
-    color: #26a69a;
-    display: block;
-    line-height: 22px;
-    padding: 14px 16px;
-}
-
-.highlight {
-    color: #444;
-    font-weight: 400;
-    max-width: 100%;
-    overflow: hidden;
-    padding: 0;
 }
 
 
