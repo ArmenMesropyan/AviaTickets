@@ -1,3 +1,6 @@
 import './animate';
-import './materialize';
+import getAutocompleteInstance from './materialize';
 import './bulma';
+import api from './axios';
+
+export { api, getAutocompleteInstance };

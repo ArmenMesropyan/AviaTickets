@@ -29,27 +29,28 @@
     <main class="tickets">
         <section class="tickets__form tickets-form section panel zoomIn">
             <h2 class="tickets-form__title panel-heading">Search tickets!</h2>
-            <form class="tickets-form__form panel-block">
+            <form class="tickets-form__form panel-block" name="locationControls" id="locationControls">
                 <div class="tickets-form__route">
-                    <fieldset class="tickets-form__origin field">
+                    <fieldset class="tickets-form__origin field input-field">
                         <label class="label" for="origin">Origin</label>
-                        <input class="input" type="text" placeholder="Choose origin" name="origin" id="origin">
+                        <input class="input autocomplete" type="text" placeholder="Choose origin" name="origin" id="origin">
                     </fieldset>
-                    <fieldset class="tickets-form__destination field">
+                    <fieldset class="tickets-form__destination field input-field">
                         <label class="label" for="destination">Destination</label>
-                        <input class="input" type="text" placeholder="Choose destination" name="destination" id="destination">
+                        <input class="input autocomplete" type="text" placeholder="Choose destination" name="destination" id="destination">
                     </fieldset>
                 </div>
                 <div class="tickets-form__date">
                     <fieldset class="tickets-form__depart field">
                         <label class="label" for="depart">Depart</label>
-                        <input class="input" type="text" placeholder="Choose depart" name="depart" id="depart">
+                        <input class="input datepicker" type="text" placeholder="Choose depart" name="depart" id="depart">
                     </fieldset>
                     <fieldset class="tickets-form__return field">
                         <label class="label" for="return">Return</label>
-                        <input class="input" type="text" placeholder="Choose return" name="return" id="return">
+                        <input class="input datepicker" type="text" placeholder="Choose return" name="return" id="return">
                     </fieldset>
                 </div>
+                <button type="submit" class="tickets-form__button button is-warning">Search</button>
             </form>
         </section>
     </main>

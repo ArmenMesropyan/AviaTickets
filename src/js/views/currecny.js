@@ -1,6 +1,11 @@
 class CurrencyUI {
     constructor(selector) {
         this.select = document.querySelector(selector);
+        this.currencyLib = {
+            euro: '&euro;',
+            dollar: '&#36;',
+            rub: '&#8381;',
+        };
     }
 
     get currencyValue() {
@@ -8,13 +13,7 @@ class CurrencyUI {
     }
 
     get currencySymbol() {
-        const currencyLib = {
-            euro: '&euro;',
-            dollar: '&#36;',
-            rub: '&#8381;',
-        };
-
-        return currencyLib[this.currencyValue];
+        return this.currencyLib[this.currencyValue];
     }
 }
 
