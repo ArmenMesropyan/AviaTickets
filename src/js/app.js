@@ -7,20 +7,18 @@ import formUI from './views/form';
 
 async function onFormSubmit() {
     const origin = location.getCityCodeByName(formUI.originValue);
-    console.log('origin: ', origin);
-    const destination = location.getCityCodeByName(formUI.destinationValue);
-    console.log('destination: ', destination);
-    const currecny = currencyUI.currencyValue;
-    console.log('currecny: ', currecny);
-    // const depart_date = formUI.departValue;
-    // const return_date = formUI.returnValue;
+    const destination = formUI.destinationValue ? location.getCityCodeByName(formUI.destinationValue) : '';
+    const currency = currencyUI.currencyValue;
+    const depart_date = formUI.departValue;
+    const return_date = formUI.returnValue;
 
-    // location.fetchTickets({
-    //     origin,
-    //     destination,
-    //     depart_date,
-    //     return_date,
-    // });
+    await location.fetchTickets({
+        origin,
+        destination,
+        depart_date,
+        return_date,
+        currency,
+    });
 }
 
 async function initApp() {

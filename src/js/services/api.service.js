@@ -7,35 +7,36 @@ class ApiService {
 
     async countries() {
         try {
-            const response = await this.api.get('/countries');
-            console.log(response);
+            const response = await this.api.main('/countries');
             return response.data;
         } catch (error) {
-            console.log(error);
             return Promise.reject(error);
         }
     }
 
     async cities() {
         try {
-            const response = await this.api.get('/cities');
-            console.log(response);
+            const response = await this.api.main('/cities');
             return response.data;
         } catch (error) {
-            console.log(error);
             return Promise.reject(error);
         }
     }
 
-    async prices(params) {
+    async prices({
+        currency,
+        origin,
+        depart_date = '-',
+        return_date = '-',
+        destination = '-',
+    } = {}) {
         try {
-            const response = await this.api.get('/prices/cheap', {
-                params,
-            });
-
+            const response = await this.api.prices(`/prices/cheap?currency=${currency}&origin=${origin}&depart_date=${depart_date}&return_date=${return_date}&destination=${destination}`);
+            // const response = await this.api.prices('/prices/cheap', {
+            //     params,
+            // });
             return response.data;
         } catch (error) {
-            console.log(error);
             return Promise.reject(error);
         }
     }

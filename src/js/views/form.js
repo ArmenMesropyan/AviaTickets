@@ -1,7 +1,5 @@
 import { getAutocompleteInstance } from '../plugins';
 
-console.log('getAutocompleteInstance: ', getAutocompleteInstance);
-
 class FormUI {
     constructor(id) {
         this.form = document.forms[id];
