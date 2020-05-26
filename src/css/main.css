@@ -137,6 +137,139 @@ body {
 }
 
 
+/* Tickets */
+
+.tickets-list__list {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.tickets-list__item {
+    width: calc(100% * 6 / 12 - 40px);
+    justify-content: center;
+    margin: 20px;
+    background-color: #461818;
+    color: #fff;
+    padding: 20px 35px;
+}
+
+.tickets-item__way,
+.tickets-item__info,
+.tickets-item__airline {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+.tickets-item__airline,
+.tickets-item__logo {
+    max-height: 100px;
+}
+
+.tickets-item__airline {
+    align-items: center;
+    justify-content: left;
+    margin: 0;
+}
+
+.tickets-item__info {
+    align-items: center;
+}
+
+.tickets-item__logo {
+    margin-right: 20px;
+}
+
+.tickets-item__name {
+    font-weight: 700;
+}
+
+.tickets-item__origin,
+.tickets-item__destination {
+    text-transform: uppercase;
+    font-weight: 700;
+}
+
+.tickets-item__depart,
+.tickets-item__return {
+    font-size: 12px;
+}
+
+.tickets-item__depart {
+    color: #ffdd57;
+}
+
+.tickets-item__destination {
+    color: #dfd9c3;
+}
+
+.tickets-item__origin span {
+    position: relative;
+    animation-name: origin;
+    animation-duration: 2s;
+    animation-iteration-count: infinite;
+    margin-right: 10px;
+}
+
+.tickets-item__destination span {
+    position: relative;
+    animation-name: destination;
+    animation-duration: 2s;
+    animation-iteration-count: infinite;
+    margin-right: 10px;
+}
+
+@keyframes origin {
+    0% {
+        top: 0;
+        left: 0;
+    }
+    50% {
+        top: 15px;
+        left: -15px;
+    }
+    100% {
+        top: 0;
+        left: 0;
+    }
+}
+
+@keyframes destination {
+    0% {
+        bottom: 0;
+        right: 0;
+    }
+    50% {
+        bottom: 15px;
+        right: 15px;
+    }
+    100% {
+        bottom: 0;
+        right: 0;
+    }
+}
+
+.tickets-item__price {
+    cursor: text;
+    display: block;
+    width: 100px;
+    margin-bottom: 10px;
+}
+
+.tickets-item__favorites-btn {
+    transition: 0.5s ease;
+    background-color: #461818;
+    color: #fff;
+}
+
+.tickets-item__favorites-btn:hover {
+    background-color: #fff;
+    color: #461818;
+}
+
+
 /* Media */
 
 @media screen and (max-width: 1023px) {

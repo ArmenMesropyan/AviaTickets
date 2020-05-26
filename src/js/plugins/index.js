@@ -1,6 +1,6 @@
+import 'bulma/css/bulma.min.css';
 import './animate';
 import getAutocompleteInstance from './materialize';
-import './bulma';
 import api from './axios';
 
 export { api, getAutocompleteInstance };
