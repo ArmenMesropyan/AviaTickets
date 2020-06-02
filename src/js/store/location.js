@@ -35,6 +35,10 @@ class Location {
         return this.countries.find((country) => country.code === code);
     }
 
+    getCityNameByCityCode(code) {
+        return Object.values(this.cities).find((city) => city.code === code).name_translations.en;
+    }
+
     async init() {
         try {
             const response = await Promise.all([
@@ -56,7 +60,8 @@ class Location {
 
     async fetchTickets(params) {
         const res = await this.service.prices(params);
-        this.lastSearch = res;
+        this.lastParams = params;
+        this.lastSearch = res.data;
     }
 }
 

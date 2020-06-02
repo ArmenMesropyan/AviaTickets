@@ -2,9 +2,9 @@ class CurrencyUI {
     constructor(selector) {
         this.select = document.querySelector(selector);
         this.currencyLib = {
-            euro: '&euro;',
-            dollar: '&#36;',
-            rub: '&#8381;',
+            EUR: '&euro;',
+            USD: '&#36;',
+            RUB: '&#8381;',
         };
     }
 

@@ -4,6 +4,7 @@ import '../css/main.css';
 import currencyUI from './views/currecny';
 import location from './store/location';
 import formUI from './views/form';
+import ticketsUI from './views/tickets';
 
 async function onFormSubmit() {
     const origin = location.getCityCodeByName(formUI.originValue);
@@ -19,6 +20,7 @@ async function onFormSubmit() {
         return_date,
         currency,
     });
+    ticketsUI.init(location);
 }
 
 async function initApp() {
