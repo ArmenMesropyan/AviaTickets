@@ -282,9 +282,21 @@ body {
     }
 }
 
+@media screen and (max-width: 800px) {
+    .tickets-list__item {
+        width: 70%;
+    }
+    .tickets-item .tickets-item__way {
+        margin-top: 50px;
+    }
+}
+
 @media screen and (max-width: 700px) {
     .tickets .tickets-form {
         width: 400px;
+    }
+    .tickets-form__form input {
+        font-size: 14px;
     }
 }
 
@@ -303,8 +315,12 @@ body {
     .tickets-form__form {
         display: block;
     }
+    .tickets-form__date {
+        margin-top: 20px;
+    }
     .tickets-form .tickets-form__route,
-    .tickets-form .tickets-form__date {
+    .tickets-form .tickets-form__date,
+    .tickets-list__item {
         width: 100%;
     }
 }
