@@ -281,3 +281,30 @@ body {
         margin-left: auto;
     }
 }
+
+@media screen and (max-width: 700px) {
+    .tickets .tickets-form {
+        width: 400px;
+    }
+}
+
+@media screen and (max-width: 450px) {
+    .main-nav ul.main-nav__list {
+        flex-direction: column;
+        align-items: baseline;
+    }
+    .main-nav__list .navbar-end {
+        margin: 0;
+        align-self: center;
+    }
+    .tickets .tickets-form {
+        width: 270px;
+    }
+    .tickets-form__form {
+        display: block;
+    }
+    .tickets-form .tickets-form__route,
+    .tickets-form .tickets-form__date {
+        width: 100%;
+    }
+}
