@@ -6,43 +6,53 @@ class TicketsUI {
         this.container = document.querySelector('.tickets-list__list');
     }
 
-    static ticketTemplate(ticket) {
+    static ticketTemplate({
+        airline,
+        origin,
+        destination,
+        airlineName,
+        departure,
+        returnDate,
+        flight,
+        price,
+        priceSymbol,
+    }) {
         return `
             <li class="tickets-list__item tickets-item box">
                 <ul class="tickets-item__list">
                     <li class="tickets-item__airline">
-                        <img src="http://pics.avs.io/200/200/${ticket.airline}.png" alt="Airline name" class="tickets-item__logo">
+                        <img src="http://pics.avs.io/200/200/${airline}.png" alt="${airlineName}" class="tickets-item__logo">
                         <p class="tickets-item__name">
-                            Logo // Airline name
+                            ${airlineName}
                         </p>
                     </li>
                     <li class="tickets-item__way">
                         <p class="tickets-item__origin">
                             <span>
                                 <i class="fas fa-plane-departure"></i>
-                            </span> ${ticket.origin}
+                            </span> ${origin}
                         </p>
                         <p class="tickets-item__destination">
                             <span>
                                 <i class="fas fa-plane-arrival"></i>
-                            </span> ${ticket.destination}
+                            </span> ${destination}
                         </p>
                     </li>
                     <li class="tickets-item__info">
                         <div class="tickets-item__wrap">
                             <p class="tickets-item__depart">
-                                Departure date: ${ticket.departure}
+                                Departure date: ${departure}
                             </p>
                             <p class="tickets-item__return">
-                                Return date: ${ticket.return}
+                                Return date: ${returnDate}
                             </p>
                             <p class="tickets-item__flight">
-                                Flight number: ${ticket.flight}
+                                Flight number: ${flight}
                             </p>
                         </div>
                         <div class="tickets-item__wrap">
                             <p class="tickets-item__price btn button is-warning">
-                                ${ticket.price} ${ticket.priceSymbol}
+                                ${price} ${priceSymbol}
                             </p>
                             <div class="tickets-item__favorites-btn button">
                                 Add to favorites
@@ -85,7 +95,7 @@ class TicketsUI {
                     airline: ticket.airline,
                     priceSymbol: currencyUI.currencySymbol,
                     departure: ticket.departure_at,
-                    return: ticket.return_at,
+                    returnDate: ticket.return_at,
                     price: ticket.price,
                     flight: ticket.flight_number,
                 });
