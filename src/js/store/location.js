@@ -39,17 +39,28 @@ class Location {
         return Object.values(this.cities).find((city) => city.code === code).name_translations.en;
     }
 
+    serializeAirlines() {
+        this.airlines = Object.values(this.airlines).reduce((acc, airline) => {
+            acc[airline.code] = airline.name_translations.en;
+            return acc;
+        }, {});
+    }
+
     async init() {
         try {
             const response = await Promise.all([
                 this.service.cities(),
                 this.service.countries(),
+                this.service.airlines(),
             ]);
-            const [cities, countries] = response;
+            const [cities, countries, airlines] = response;
             this.cities = cities;
             this.countries = countries;
+            this.airlines = airlines;
 
             this.serializeCities();
+            this.serializeAirlines();
+            console.log('this.airlines: ', this.airlines);
 
             this.shortCitiesList = this.createShortCitiesList();
             return response;

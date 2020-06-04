@@ -23,6 +23,15 @@ class ApiService {
         }
     }
 
+    async airlines() {
+        try {
+            const response = await this.api.main('/airlines');
+            return response.data;
+        } catch (error) {
+            return Promise.reject(error);
+        }
+    }
+
     async prices({
         currency,
         origin,

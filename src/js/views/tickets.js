@@ -77,9 +77,11 @@ class TicketsUI {
             Object.values(value).forEach((ticket) => {
                 const origin = this.location.getCityNameByCityCode(this.params.origin);
                 const destination = this.location.getCityNameByCityCode(this.params.destination || key);
+                const airlineName = this.location.airlines[ticket.airline];
                 res.push({
                     origin,
                     destination,
+                    airlineName,
                     airline: ticket.airline,
                     priceSymbol: currencyUI.currencySymbol,
                     departure: ticket.departure_at,
