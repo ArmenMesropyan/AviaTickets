@@ -1,4 +1,5 @@
 import currencyUI from './currecny';
+import formatDate from '../helpers/date';
 
 class TicketsUI {
     constructor() {
@@ -94,8 +95,8 @@ class TicketsUI {
                     airlineName,
                     airline: ticket.airline,
                     priceSymbol: currencyUI.currencySymbol,
-                    departure: ticket.departure_at,
-                    returnDate: ticket.return_at,
+                    departure: formatDate(ticket.departure_at),
+                    returnDate: formatDate(ticket.return_at),
                     price: ticket.price,
                     flight: ticket.flight_number,
                 });

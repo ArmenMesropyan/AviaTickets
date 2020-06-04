@@ -60,7 +60,6 @@ class Location {
 
             this.serializeCities();
             this.serializeAirlines();
-            console.log('this.airlines: ', this.airlines);
 
             this.shortCitiesList = this.createShortCitiesList();
             return response;
