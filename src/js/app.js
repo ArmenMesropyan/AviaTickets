@@ -5,6 +5,19 @@ import currencyUI from './views/currecny';
 import location from './store/location';
 import formUI from './views/form';
 import ticketsUI from './views/tickets';
+import favoritesStorage from './storage/favorites';
+
+
+function onFavoritesBtnClick({ target }) {
+    const parent = target.closest('.tickets-list__item');
+    const [flight, price] = parent.dataset.ticketInfo.split(',');
+
+    const favorite = location.lastSearch.find((item) => item.price === Number(price) && item.flight === Number(flight));
+    const isSimilar = favoritesStorage.favoritesValue.find((item) => item.price === Number(price) && item.flight === Number(flight));
+
+    if (!isSimilar) favoritesStorage.setStorage(favorite);
+    else favoritesStorage.removeFromStorage(favorite);
+}
 
 async function onFormSubmit() {
     const origin = location.getCityCodeByName(formUI.originValue);
@@ -21,6 +34,9 @@ async function onFormSubmit() {
         currency,
     });
     ticketsUI.init(location);
+    const favoritesBtns = document.querySelectorAll('.tickets-item__favorites-btn');
+
+    favoritesBtns.forEach((btn) => btn.addEventListener('click', (e) => onFavoritesBtnClick(e)));
 }
 
 async function initApp() {

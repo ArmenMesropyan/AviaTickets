@@ -1,4 +1,6 @@
 import apiService from '../services/api.service';
+import currencyUI from '../views/currecny';
+import formatDate from '../helpers/date';
 
 class Location {
     constructor(service) {
@@ -68,10 +70,37 @@ class Location {
         }
     }
 
+    serializeTickets(tickets) {
+        console.log(tickets);
+        const res = [];
+        this.params = this.lastParams;
+
+        Object.entries(tickets).forEach(([key, value]) => {
+            Object.values(value).forEach((ticket) => {
+                const origin = this.getCityNameByCityCode(this.params.origin);
+                const destination = this.getCityNameByCityCode(this.params.destination || key);
+                const airlineName = this.airlines[ticket.airline];
+                res.push({
+                    origin,
+                    destination,
+                    airlineName,
+                    airline: ticket.airline,
+                    priceSymbol: currencyUI.currencySymbol,
+                    departure: formatDate(ticket.departure_at),
+                    returnDate: formatDate(ticket.return_at),
+                    price: ticket.price,
+                    flight: ticket.flight_number,
+                });
+            });
+        });
+
+        return res;
+    }
+
     async fetchTickets(params) {
         const res = await this.service.prices(params);
         this.lastParams = params;
-        this.lastSearch = res.data;
+        this.lastSearch = this.serializeTickets(res.data);
     }
 }
 

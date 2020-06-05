@@ -1,6 +1,3 @@
-import currencyUI from './currecny';
-import formatDate from '../helpers/date';
-
 class TicketsUI {
     constructor() {
         this.tickets = null;
@@ -19,7 +16,7 @@ class TicketsUI {
         priceSymbol,
     }) {
         return `
-            <li class="tickets-list__item tickets-item box">
+            <li class="tickets-list__item tickets-item box" data-ticket-info="${flight}, ${price}">
                 <ul class="tickets-item__list">
                     <li class="tickets-item__airline">
                         <img src="http://pics.avs.io/200/200/${airline}.png" alt="${airlineName}" class="tickets-item__logo">
@@ -67,7 +64,7 @@ class TicketsUI {
 
     init(location) {
         this.location = location;
-        this.tickets = this.serializeTickets(this.location.lastSearch);
+        this.tickets = this.location.lastSearch;
         this.clearContainer();
 
         this.tickets.forEach((ticket) => {
@@ -78,32 +75,6 @@ class TicketsUI {
 
     clearContainer() {
         this.container.innerHTML = '';
-    }
-
-    serializeTickets(tickets) {
-        const res = [];
-        this.params = this.location.lastParams;
-
-        Object.entries(tickets).forEach(([key, value]) => {
-            Object.values(value).forEach((ticket) => {
-                const origin = this.location.getCityNameByCityCode(this.params.origin);
-                const destination = this.location.getCityNameByCityCode(this.params.destination || key);
-                const airlineName = this.location.airlines[ticket.airline];
-                res.push({
-                    origin,
-                    destination,
-                    airlineName,
-                    airline: ticket.airline,
-                    priceSymbol: currencyUI.currencySymbol,
-                    departure: formatDate(ticket.departure_at),
-                    returnDate: formatDate(ticket.return_at),
-                    price: ticket.price,
-                    flight: ticket.flight_number,
-                });
-            });
-        });
-
-        return res;
     }
 }
 
