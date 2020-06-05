@@ -13,8 +13,8 @@ class FavoritesStorage {
     }
 
     removeFromStorage(elem) {
-        const flightNum = Number(elem.dataset.flight);
-        const price = Number(elem.dataset.price);
+        const flightNum = Number(elem.flight);
+        const price = Number(elem.price);
 
         const localFavorites = JSON.parse(window.localStorage.getItem('favorites'));
 
