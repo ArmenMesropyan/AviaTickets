@@ -8,9 +8,6 @@ import { ticketsUI } from './views/tickets';
 import favoritesStorage from './storage/favorites';
 import favoritesUI from './views/favorites';
 
-console.log('favoritesStorage: ', favoritesStorage);
-favoritesUI.init(favoritesStorage);
-
 
 function onFavoritesBtnClick({ target }) {
     const parent = target.closest('.tickets-list__item');
@@ -21,6 +18,8 @@ function onFavoritesBtnClick({ target }) {
 
     if (!isSimilar) favoritesStorage.setStorage(favorite);
     else favoritesStorage.removeFromStorage(favorite);
+
+    favoritesUI.init(favoritesStorage);
 }
 
 async function onFormSubmit() {
@@ -46,6 +45,7 @@ async function onFormSubmit() {
 async function initApp() {
     await location.init();
     formUI.setAutocompleteData(location.shortCitiesList);
+    favoritesUI.init(favoritesStorage);
 }
 
 document.addEventListener('DOMContentLoaded', () => {

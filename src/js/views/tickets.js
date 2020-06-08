@@ -14,7 +14,7 @@ class TicketsUI {
         flight,
         price,
         priceSymbol,
-    }) {
+    }, classes = '') {
         return `
             <li class="tickets-list__item tickets-item box" data-ticket-info="${flight}, ${price}">
                 <ul class="tickets-item__list">
@@ -52,7 +52,7 @@ class TicketsUI {
                             <p class="tickets-item__price btn button is-warning">
                                 ${price} ${priceSymbol}
                             </p>
-                            <div class="tickets-item__favorites-btn button">
+                            <div class="tickets-item__favorites-btn button ${classes}">
                                 Add to favorites
                             </div>
                         </div>
