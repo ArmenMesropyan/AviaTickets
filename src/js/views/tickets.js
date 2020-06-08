@@ -53,7 +53,7 @@ class TicketsUI {
                                 ${price} ${priceSymbol}
                             </p>
                             <div class="tickets-item__favorites-btn button ${classes}">
-                                ${classes === 'favorite-btn' ? 'Remove from favorites' : 'Add to favorites'}
+                                ${classes === 'favorite-btn' ? 'Remove from list' : 'Add to favorites'}
                             </div>
                         </div>
                     </li>

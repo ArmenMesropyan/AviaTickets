@@ -273,10 +273,36 @@ body {
 
 /* Favorites */
 
+.favorites__open {
+    position: fixed;
+    right: 20px;
+    bottom: 20px;
+    font-size: 0;
+    background: url(../img/favorite.svg) center center no-repeat;
+    width: 50px;
+    height: 50px;
+    background-size: 100%;
+}
+
+.favorites__open:hover {
+    background: url(../img/favorite-white.svg) center center no-repeat;
+    background-size: 100%;
+}
+
 .favorites-list__list {
     display: flex;
     flex-direction: column;
     align-items: center;
+}
+
+.favorite-delete,
+.favorite-btn {
+    background-color: #ba1f1f;
+    border: none;
+}
+
+.favorites-list .tickets-list__item {
+    width: 100%;
 }
 
 
