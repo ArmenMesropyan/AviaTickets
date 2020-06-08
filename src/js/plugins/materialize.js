@@ -15,6 +15,7 @@ const datepickers = document.querySelectorAll('.datepicker');
 window.M.Datepicker.init(datepickers, {
     yearRange: 2,
     showClearBtn: true,
+    format: 'yyyy-mm-dd',
 });
 
 // init Modal
