@@ -15,7 +15,6 @@ function onFavoritesBtnClick({ target }) {
     const [flight, price] = parent.dataset.ticketInfo.split(',');
 
     const favorite = location.lastSearch.find((item) => item.price === Number(price) && item.flight === Number(flight));
-    console.log('favorite: ', favorite);
     const isSimilar = favoritesStorage.favoritesValue.find((item) => item.price === Number(price) && item.flight === Number(flight));
 
     if (!isSimilar) {
