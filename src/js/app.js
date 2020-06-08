@@ -10,14 +10,21 @@ import favoritesUI from './views/favorites';
 
 
 function onFavoritesBtnClick({ target }) {
+    target.classList.toggle('favorite-delete');
     const parent = target.closest('.tickets-list__item');
     const [flight, price] = parent.dataset.ticketInfo.split(',');
 
     const favorite = location.lastSearch.find((item) => item.price === Number(price) && item.flight === Number(flight));
+    console.log('favorite: ', favorite);
     const isSimilar = favoritesStorage.favoritesValue.find((item) => item.price === Number(price) && item.flight === Number(flight));
 
-    if (!isSimilar) favoritesStorage.setStorage(favorite);
-    else favoritesStorage.removeFromStorage(favorite);
+    if (!isSimilar) {
+        favoritesStorage.setStorage(favorite);
+        target.innerHTML = 'Delete from favorites';
+    } else {
+        favoritesStorage.removeFromStorage(favorite);
+        target.innerHTML = 'Add to favorites';
+    }
 
     favoritesUI.init(favoritesStorage);
 }
