@@ -271,6 +271,15 @@ body {
 }
 
 
+/* Favorites */
+
+.favorites-list__list {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+
 /* Media */
 
 @media screen and (max-width: 1023px) {

@@ -17,6 +17,11 @@ window.M.Datepicker.init(datepickers, {
     showClearBtn: true,
 });
 
+// init Modal
+
+const modals = document.querySelectorAll('.window');
+window.M.Modal.init(modals, {});
+
 export default function getAutocompleteInstance(elem) {
     const instance = window.M.Autocomplete.getInstance(elem);
     return instance;
