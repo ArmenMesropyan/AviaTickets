@@ -4,8 +4,12 @@ import '../css/main.css';
 import currencyUI from './views/currecny';
 import location from './store/location';
 import formUI from './views/form';
-import ticketsUI from './views/tickets';
+import { ticketsUI } from './views/tickets';
 import favoritesStorage from './storage/favorites';
+import favoritesUI from './views/favorites';
+
+console.log('favoritesStorage: ', favoritesStorage);
+favoritesUI.init(favoritesStorage);
 
 
 function onFavoritesBtnClick({ target }) {

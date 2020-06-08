@@ -1,7 +1,7 @@
 class TicketsUI {
-    constructor() {
+    constructor(selector) {
         this.tickets = null;
-        this.container = document.querySelector('.tickets-list__list');
+        this.container = document.querySelector(selector);
     }
 
     static ticketTemplate({
@@ -78,6 +78,6 @@ class TicketsUI {
     }
 }
 
-const ticketsUI = new TicketsUI();
+const ticketsUI = new TicketsUI('.tickets-list__list');
 
-export default ticketsUI;
+export { ticketsUI, TicketsUI };
