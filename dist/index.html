@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Avia Tickets! Search cheapest tickets!</title>
+<link href="./style.css" rel="stylesheet"></head>
+
+<body>
+    <header class="main-nav">
+        <nav class="main-header__nav main-nav navbar is-warning" role="navigation" aria-label="main navigation">
+            <ul class="main-nav__list container">
+                <li class="main-nav__item logo navbar-brand">
+                    <object data="img/logo.svg" type="image/svg+xml" class="logo__img pulse">Avia Tickets</object>
+                    <p class="logo__text">Avia Tickets</p>
+                </li>
+
+                <li class="main-nav__item course navbar-end select">
+                    <select name="course" id="course-select" class="course__select">
+                        <option value="EUR" class="course__option course__option_euro">Euro</option>
+                        <option value="USD" class="course__option course__option_dollar">Dollar</option>
+                        <option value="RUB" class="course__option course__option_rub">Rub</option>
+                    </select>
+                </li>
+            </ul>
+        </nav>
+    </header>
+    <main class="tickets">
+        <section class="tickets__form tickets-form section panel zoomIn">
+            <h2 class="tickets-form__title panel-heading">Search tickets!</h2>
+            <form class="tickets-form__form panel-block" name="locationControls" id="locationControls">
+                <div class="tickets-form__route">
+                    <fieldset class="tickets-form__origin field input-field">
+                        <label class="label" for="origin">Origin</label>
+                        <input class="input autocomplete" type="text" placeholder="Choose origin" name="origin" id="origin">
+                    </fieldset>
+                    <fieldset class="tickets-form__destination field input-field">
+                        <label class="label" for="destination">Destination</label>
+                        <input class="input autocomplete" type="text" placeholder="Choose destination" name="destination" id="destination">
+                    </fieldset>
+                </div>
+                <div class="tickets-form__date">
+                    <fieldset class="tickets-form__depart field">
+                        <label class="label" for="depart">Depart</label>
+                        <input class="input datepicker" type="text" placeholder="Choose depart" name="depart" id="depart">
+                    </fieldset>
+                    <fieldset class="tickets-form__return field">
+                        <label class="label" for="return">Return</label>
+                        <input class="input datepicker" type="text" placeholder="Choose return" name="return" id="return">
+                    </fieldset>
+                </div>
+                <button type="submit" class="tickets-form__button button is-warning">Search</button>
+            </form>
+        </section>
+        <section class="tickets__list tickets-list">
+            <ul class="tickets-list__list container"></ul>
+        </section>
+        <section class="tickets__favorites favorites">
+            <a class="favorites__open modal-trigger" href="#modal">Favorites list</a>
+            <ul id="modal" class="favorites__list favorites-list window">
+                <li class="favorites-list__content window-content">
+                    <ul class="favorites-list__list tickets-list"></ul>
+                </li>
+                <!-- <div class="window-footer">
+                    <a href="#!" class="window-close waves-effect waves-green btn-flat">Agree</a>
+                </div> -->
+            </ul>
+        </section>
+    </main>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/js/all.min.js"></script>
+<script type="text/javascript" src="polyfill.18a4738033225b8db049.js"></script><script type="text/javascript" src="app.18a4738033225b8db049.js"></script></body>
+
+</html>
