@@ -62,11 +62,22 @@ class TicketsUI {
         `;
     }
 
-    init(location) {
+    checkFavorites({ favorites }, location) {
         this.location = location;
         this.tickets = this.location.lastSearch;
-        this.clearContainer();
+        this.tickets.forEach((ticket) => {
+            favorites.forEach((item) => {
+                const { flight, price } = ticket;
+                const isSimilar = item.price === Number(price) && item.flight === Number(flight);
+                console.log('isSimilar: ', isSimilar);
+                if (isSimilar) ticket.isFavorite = true;
+            });
+        });
+    }
 
+    init() {
+        this.clearContainer();
+        console.log(this.tickets);
         this.tickets.forEach((ticket) => {
             const html = TicketsUI.ticketTemplate(ticket);
             this.container.insertAdjacentHTML('afterbegin', html);

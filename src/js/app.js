@@ -42,7 +42,8 @@ async function onFormSubmit() {
         return_date,
         currency,
     });
-    ticketsUI.init(location);
+    ticketsUI.checkFavorites(favoritesStorage, location);
+    ticketsUI.init();
     const favoritesBtns = document.querySelectorAll('.tickets-item__favorites-btn');
 
     favoritesBtns.forEach((btn) => btn.addEventListener('click', (e) => onFavoritesBtnClick(e)));

@@ -33,9 +33,17 @@ class FavoritesUI extends TicketsUI {
         const favorite = this.storage.favorites.find((item) => item.price === Number(price) && item.flight === Number(flight));
         this.storage.removeFromStorage(favorite);
 
+        const elements = document.querySelectorAll(`.tickets-list__item[data-ticket-info="${flight.trim()}, ${price.trim()}"]`);
+
         parent.parentElement.removeChild(parent);
 
         if (!this.storage.favorites.length) this.showEmptyMsg();
+
+        if (elements.length > 1) {
+            const button = elements[0].querySelector('.tickets-item__favorites-btn');
+            button.classList.remove('favorite-delete');
+            button.innerHTML = 'Add to favorites';
+        }
     }
 }
 
