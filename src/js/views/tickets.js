@@ -14,6 +14,7 @@ class TicketsUI {
         flight,
         price,
         priceSymbol,
+        isFavorite,
     }, classes = '') {
         return `
             <li class="tickets-list__item tickets-item box" data-ticket-info="${flight}, ${price}">
@@ -52,8 +53,8 @@ class TicketsUI {
                             <p class="tickets-item__price btn button is-warning">
                                 ${price} ${priceSymbol}
                             </p>
-                            <div class="tickets-item__favorites-btn button ${classes}">
-                                ${classes === 'favorite-btn' ? 'Remove from list' : 'Add to favorites'}
+                            <div class="tickets-item__favorites-btn button ${classes} ${isFavorite ? 'favorite-delete' : ''}">
+                                ${isFavorite || classes === 'favorite-btn' ? 'Remove from list' : 'Add to favorites'}
                             </div>
                         </div>
                     </li>
@@ -77,7 +78,6 @@ class TicketsUI {
 
     init() {
         this.clearContainer();
-        console.log(this.tickets);
         this.tickets.forEach((ticket) => {
             const html = TicketsUI.ticketTemplate(ticket);
             this.container.insertAdjacentHTML('afterbegin', html);
