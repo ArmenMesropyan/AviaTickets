@@ -299,6 +299,7 @@ body {
 .favorite-btn {
     background-color: #ba1f1f;
     border: none;
+    max-width: 170px;
 }
 
 .favorites-list .tickets-list__item {
