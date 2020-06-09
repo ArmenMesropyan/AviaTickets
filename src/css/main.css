@@ -324,6 +324,9 @@ body {
     .tickets-item .tickets-item__way {
         margin-top: 50px;
     }
+    .tickets-item__flight {
+        margin: 15px 0;
+    }
 }
 
 @media screen and (max-width: 700px) {
@@ -332,6 +335,15 @@ body {
     }
     .tickets-form__form input {
         font-size: 14px;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .tickets-item__origin {
+        margin-bottom: 30px;
+    }
+    .favorites-list {
+        width: 90%;
     }
 }
 
